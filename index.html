@@ -6,10 +6,9 @@
   <title>Support TRUMods</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (latest) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* CSS variables for easy theming */
     :root {
       --primary: #d81b60;
       --primary-light: #f06292;
@@ -101,6 +100,224 @@
       padding: 14px 20px;
       border-radius: 16px;
       margin: 12px 0;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      user-select: all;
+      position: relative;
+    }
+
+    .copy-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      width: 30px;
+      text-align: center;
+    }
+
+    .copy-item:hover {
+      background: #ffccd9;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -8px rgba(216, 27, 96, 0.4);
+    }
+
+    .copy-item:active {
+      transform: translateY(0);
+    }
+
+    /* Toast notification */
+    .toast-message {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2c3e50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 500;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: toastIn 0.3s ease;
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin: 35px 0 15px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      color: white;
+      transition: var(--transition);
+      box-shadow: 0 8px 16px -6px rgba(216, 27, 96, 0.5);
+      text-decoration: none;
+      flex: 0 1 auto;
+      min-width: 160px;
+    }
+
+    .social-btn i {
+      font-size: 1.2rem;
+    }
+
+    .social-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px -8px rgba(183, 28, 90, 0.6);
+    }
+
+    /* Platform-specific button colors */
+    .social-btn.telegram { background: #0088cc; }
+    .social-btn.telegram:hover { background: #0077b3; }
+    .social-btn.upi { background: #0f9d58; }  /* UPI green */
+    .social-btn.upi:hover { background: #0b7e45; }
+    .social-btn.paypal { background: #003087; }
+    .social-btn.paypal:hover { background: #00256b; }
+    .social-btn.default { background: var(--primary); }
+    .social-btn.default:hover { background: #b71c5a; }
+
+    .email-note {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.95rem;
+    }
+
+    .email-note a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px dotted var(--primary-light);
+    }
+
+    .email-note a:hover {
+      border-bottom-style: solid;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+      margin: 30px 0 20px;
+    }
+
+    @media (max-width: 500px) {
+      .support-card { padding: 25px 18px; }
+      .copy-item { font-size: 0.9rem; padding: 12px 15px; }
+      .button-grid { flex-direction: column; align-items: stretch; }
+      .social-btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Support TRUMods</h1>
+    <p class="subtitle">Your support helps us continue building, maintaining, and improving for the community.</p>
+
+    <div class="support-card">
+      <p><i class="fas fa-heart" style="color: #d81b60; margin-right: 8px;"></i> Your support truly means a lot to us. If you enjoy our work and find it useful, consider supporting us. Every contribution helps us continue improving, maintaining, and building more for the community.</p>
+
+      <h3><i class="fas fa-coins"></i> Support Options (Tap to Copy)</h3>
+
+      <!-- Binance ID -->
+      <div class="copy-item" onclick="copyWithToast('1114282904')" role="button" tabindex="0" aria-label="Copy Binance ID">
+        <i class="fab fa-binance"></i>
+        <span><strong>Binance ID:</strong> 1114282904</span>
+      </div>
+
+      <!-- TRC20 Address -->
+      <div class="copy-item" onclick="copyWithToast('THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv')" role="button" tabindex="0" aria-label="Copy TRC20 address">
+        <i class="fas fa-coins"></i>
+        <span><strong>TRC20 (USDT / TRX):</strong> THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv</span>
+      </div>
+
+      <!-- UPI ID (copy) -->
+      <div class="copy-item" onclick="copyWithToast('trumods@ptyes')" role="button" tabindex="0" aria-label="Copy UPI ID">
+        <i class="fas fa-mobile-alt"></i>
+        <span><strong>UPI ID:</strong> trumods@ptyes</span>
+      </div>
+
+      <hr>
+
+      <div class="email-note">
+        <p>📸 Once you donate, please send a screenshot to <a href="mailto:TRUMods.official@gmail.com">TRUMods.official@gmail.com</a> to verify your contribution.</p>
+        <p style="margin-top: 10px;">Thank you for supporting TRUMods and being part of the journey! 🙏</p>
+      </div>
+
+      <!-- All the links/buttons as requested -->
+      <div class="button-grid">
+        <!-- Existing Telegram main channel (keep it) -->
+        <a href="https://t.me/TRUModsS" target="_blank" class="social-btn telegram">
+          <i class="fab fa-telegram-plane"></i> Main Channel
+        </a>
+
+        <!-- New TRUModGames Telegram -->
+        <a href="https://t.me/TRUModGames" target="_blank" class="social-btn default">
+          <i class="fab fa-telegram-plane"></i> TRUModGames
+        </a>
+
+        <!-- New Backup Telegram -->
+        <a href="https://t.me/TRUMod" target="_blank" class="social-btn default">
+          <i class="fab fa-telegram-plane"></i> Backup Channel
+        </a>
+
+        <!-- UPI Payment Link (opens UPI app) -->
+        <a href="upi://pay?pa=trumods@ptyes&pn=TRUMods" target="_blank" class="social-btn upi">
+          <i class="fas fa-qrcode"></i> Pay via UPI
+        </a>
+
+        <!-- PayPal Link -->
+        <a href="https://paypal.me/trumod" target="_blank" class="social-btn paypal">
+          <i class="fab fa-paypal"></i> Donate via PayPal
+        </a>
+      </div>
+
+      <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+        <i class="fas fa-mouse-pointer"></i> Click on any address to copy
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showToast(message, duration = 3000) {
+      const existingToast = document.querySelector('.toast-message');
+      if (existingToast) existingToast.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'toast-message';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, duration);
+    }
+
+    function copyWithToast(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✅ Copied: ' + text);
+      }).catch(() => {
+        showToast('❌ Copy failed, try manually');
+      });
+    }
+  </script>
+</body>
+</html>      margin: 12px 0;
       cursor: pointer;
       transition: var(--transition);
       font-weight: 500;
