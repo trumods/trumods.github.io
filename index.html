@@ -1,10 +1,154 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mera Site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support HEROMODS</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      color: #d81b60;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      font-family: 'Pacifico', cursive;
+      font-size: 22px;
+      text-align: center;
+      color: #ff4081;
+      margin-bottom: 40px;
+    }
+
+    .support-box {
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      border-radius: 25px;
+      padding: 35px 30px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+
+    .support-box p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #d81b60;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .support-item {
+      margin: 12px 0;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: #ffe4ec;
+      cursor: pointer;
+      font-weight: 500;
+      user-select: all;
+      transition: 0.3s;
+    }
+
+    .support-item:hover {
+      background: #ffccd9;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .button-container a button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #f48fb1;
+      color: #fff;
+      transition: 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .button-container a button:hover {
+      background: #f06292;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    }
+
+    a { text-decoration: none; color: #d81b60; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Mera Website!</h1>
-    <p>Yeh mera pehla GitHub Pages website hai.</p>
+
+  <div>
+    <!-- Title -->
+    <h1>Support HEROMODS</h1>
+    <p class="subtitle">Your support helps us continue building, maintaining, and improving for the community.</p>
+
+    <!-- Support Box -->
+    <div class="support-box">
+      <p>Your support truly means a lot to us. If you enjoy our work and find it useful, consider supporting us. Every contribution helps us continue improving, maintaining, and building more for the community.</p>
+
+      <h3>💳 Support Options (Tap to Copy)</h3>
+      <div class="support-item" onclick="copyToClipboard('1176868462')">
+        🔹 Binance ID: 1176868462
+      </div>
+      <div class="support-item" onclick="copyToClipboard('TFeMP6MxoUh9fTXr7nUieBAs6GqtK9KeJ8')">
+        🔹 TRC20 (USDT / TRX): TFeMP6MxoUh9fTXr7nUieBAs6GqtK9KeJ8
+      </div>
+      <div class="support-item" onclick="copyToClipboard('UQB5jHfSUjh2pDgsXFOmzVoF8j53_vfY0zet6iM2PRxjne0J')">
+        🔹 TON: UQB5jHfSUjh2pDgsXFOmzVoF8j53_vfY0zet6iM2PRxjne0J
+      </div>
+
+      <p>Once you donate, please send a screenshot to <a href="mailto:official.heromods@gmail.com">official.heromods@gmail.com</a> to verify your contribution.</p>
+      <p>Thank you for supporting HeroMods and being part of the journey! 🙏</p>
+
+      <div class="button-container">
+        <a href="https://t.me/HEROMODSS" target="_blank">
+          <button><i class="fab fa-telegram-plane"></i> Join Telegram Channel</button>
+        </a>
+        <a href="https://whatsapp.com/channel/0029VasmgCC3GJP3xMyh6N07" target="_blank">
+          <button><i class="fab fa-whatsapp"></i> Join WhatsApp Channel</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard: ' + text);
+      });
+    }
+  </script>
+
 </body>
 </html>
