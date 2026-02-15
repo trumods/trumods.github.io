@@ -15,7 +15,7 @@
     :root {
       /* Modern Neon Palette */
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.7);
+      --card-bg: rgba(30, 41, 59, 0.75);
       --primary: #6366f1; /* Indigo */
       --accent: #8b5cf6; /* Violet */
       --highlight: #38bdf8; /* Sky Blue */
@@ -50,7 +50,7 @@
     }
 
     .container {
-      max-width: 650px;
+      max-width: 700px;
       width: 100%;
       animation: floatIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
@@ -109,8 +109,8 @@
     h3 {
       font-family: 'Poppins', sans-serif;
       color: var(--highlight);
-      margin: 30px 0 15px;
-      font-size: 1.2rem;
+      margin: 35px 0 15px;
+      font-size: 1.1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 600;
@@ -166,17 +166,17 @@
     }
 
     .copy-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       text-transform: uppercase;
       font-weight: 600;
+      margin-bottom: 4px;
     }
 
     .copy-value {
       font-family: 'Fira Code', monospace;
       font-size: 0.95rem;
       color: #fff;
-      margin-top: 2px;
       word-break: break-all;
     }
 
@@ -189,9 +189,9 @@
     /* Buttons Grid */
     .button-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
-      margin-top: 30px;
+      margin-bottom: 10px;
     }
 
     .social-btn {
@@ -199,13 +199,14 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 20px;
+      padding: 16px 20px;
       font-weight: 600;
       border-radius: 12px;
       text-decoration: none;
       color: white;
       transition: transform 0.2s, box-shadow 0.2s;
       font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .social-btn:hover {
@@ -214,16 +215,20 @@
     }
 
     /* Button specific colors */
-    .btn-telegram { background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); }
-    .btn-main { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+    .btn-telegram { 
+      background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); 
+    }
+    .btn-telegram-dark {
+      background: linear-gradient(135deg, #229ED9 0%, #1c8ac0 100%);
+    }
     .btn-upi { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
     .btn-paypal { background: linear-gradient(135deg, #0070ba 0%, #003087 100%); }
 
     /* Email Section */
     .email-section {
       text-align: center;
-      margin-top: 30px;
-      padding-top: 20px;
+      margin-top: 40px;
+      padding-top: 25px;
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -233,6 +238,8 @@
       color: var(--highlight);
       text-decoration: none;
       font-weight: 500;
+      display: inline-block;
+      margin-top: 5px;
     }
 
     .email-section a:hover {
@@ -278,11 +285,10 @@
 
     /* Mobile adjustments */
     @media (max-width: 480px) {
-      .support-card { padding: 25px 20px; }
-      h1 { font-size: 2rem; }
+      .support-card { padding: 30px 20px; }
+      h1 { font-size: 2.2rem; }
       .button-grid { grid-template-columns: 1fr; }
-      .copy-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .copy-icon { position: absolute; top: 15px; right: 15px; }
+      h3 { margin-top: 40px; }
     }
   </style>
 </head>
@@ -300,7 +306,8 @@
 
       <div class="copy-item" onclick="copyText('1114282904')">
         <div class="copy-left">
-          <i class="fab fa-bitcoin"></i> <div class="copy-details">
+          <i class="fab fa-bitcoin"></i>
+          <div class="copy-details">
             <span class="copy-label">Binance ID</span>
             <span class="copy-value">1114282904</span>
           </div>
@@ -330,20 +337,28 @@
         <i class="far fa-copy copy-icon"></i>
       </div>
 
-      <h3><i class="fas fa-link"></i> Links & Pay</h3>
-
+      <h3><i class="fab fa-telegram"></i> Official Channels</h3>
+      
       <div class="button-grid">
         <a href="https://t.me/TRUModsS" target="_blank" class="social-btn btn-telegram">
           <i class="fab fa-telegram-plane"></i> Main Channel
         </a>
-        <a href="https://t.me/TRUModGames" target="_blank" class="social-btn btn-main">
-          <i class="fas fa-gamepad"></i> Games
+        <a href="https://t.me/TRUModGames" target="_blank" class="social-btn btn-telegram">
+          <i class="fas fa-gamepad"></i> TRUMod (Games)
         </a>
-        <a href="https://t.me/TRUMod" target="_blank" class="social-btn btn-main">
-          <i class="fas fa-shield-alt"></i> Backup
+        <a href="https://t.me/TRUMod" target="_blank" class="social-btn btn-telegram">
+          <i class="fas fa-shield-alt"></i> TRUMod (Backup)
         </a>
+        <a href="https://t.me/TRUModsOG" target="_blank" class="social-btn btn-telegram-dark">
+          <i class="fas fa-comments"></i> TRUMod (Chats)
+        </a>
+      </div>
+
+      <h3><i class="fas fa-credit-card"></i> Direct Payment</h3>
+
+      <div class="button-grid">
         <a href="upi://pay?pa=trumods@ptyes&pn=TRUMods" target="_blank" class="social-btn btn-upi">
-          <i class="fas fa-qrcode"></i> Pay via UPI
+          <i class="fas fa-qrcode"></i> Pay via UPI App
         </a>
         <a href="https://paypal.me/trumod" target="_blank" class="social-btn btn-paypal">
           <i class="fab fa-paypal"></i> PayPal
@@ -368,7 +383,17 @@
         toast.className = "show";
         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       }).catch(err => {
-        console.error('Failed to copy: ', err);
+        // Fallback for older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("Copy");
+        textArea.remove();
+        
+        const toast = document.getElementById("toast");
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       });
     }
   </script>
