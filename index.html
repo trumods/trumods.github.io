@@ -4,519 +4,374 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support TRUMods</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
     :root {
-      --primary: #d81b60;
-      --primary-light: #f06292;
-      --bg-gradient: linear-gradient(145deg, #fce4ec 0%, #f8bbd0 100%);
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --text-color: #2c3e50;
-      --border-radius: 28px;
-      --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
+      /* Modern Neon Palette */
+      --bg-dark: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --primary: #6366f1; /* Indigo */
+      --accent: #8b5cf6; /* Violet */
+      --highlight: #38bdf8; /* Sky Blue */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      /* Mesh Gradient Background */
+      background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      backdrop-filter: blur(2px);
     }
 
     .container {
-      max-width: 800px;
+      max-width: 650px;
       width: 100%;
-      animation: fadeIn 0.8s ease-out;
+      animation: floatIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Glassmorphism Card */
+    .support-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 40px;
+      box-shadow: var(--glass-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top decoration glow */
+    .support-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 10vw, 3.5rem);
-      font-weight: 900;
-      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
-      text-shadow: 2px 2px 4px rgba(216, 27, 96, 0.2);
-      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
     }
 
     p.subtitle {
-      font-family: 'Pacifico', cursive;
-      font-size: clamp(1.1rem, 4vw, 1.4rem);
       text-align: center;
-      color: #c2185b;
-      margin-bottom: 30px;
-    }
-
-    .support-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border-radius: var(--border-radius);
-      padding: 35px 30px;
-      box-shadow: var(--box-shadow);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      line-height: 1.7;
-    }
-
-    .support-card p {
+      color: var(--text-muted);
+      margin-bottom: 35px;
       font-size: 1.1rem;
-      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .heart-icon {
+      color: #f43f5e;
+      animation: beat 1.5s infinite;
+      display: inline-block;
     }
 
     h3 {
-      color: var(--primary);
-      margin: 25px 0 15px;
-      font-size: 1.6rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--highlight);
+      margin: 30px 0 15px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
+    h3::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* Copy Items Styling */
     .copy-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 12px;
-      background: rgba(255, 228, 236, 0.6);
-      border: 1px solid rgba(216, 27, 96, 0.2);
-      padding: 14px 20px;
-      border-radius: 16px;
-      margin: 12px 0;
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 500;
-      user-select: all;
+      justify-content: space-between;
+      transition: all 0.3s ease;
       position: relative;
     }
 
-    .copy-item i {
-      font-size: 1.5rem;
-      color: var(--primary);
-      width: 30px;
-      text-align: center;
-    }
-
     .copy-item:hover {
-      background: #ffccd9;
+      background: rgba(99, 102, 241, 0.1);
       border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -8px rgba(216, 27, 96, 0.4);
+      transform: translateX(5px);
     }
 
-    .copy-item:active {
-      transform: translateY(0);
-    }
-
-    /* Toast notification */
-    .toast-message {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2c3e50;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 500;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      z-index: 1000;
-      animation: toastIn 0.3s ease;
-    }
-
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-      to { opacity: 1; transform: translateX(-50%) translateY(0); }
-    }
-
-    .button-grid {
+    .copy-left {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin: 35px 0 15px;
+      align-items: center;
+      gap: 15px;
+      overflow: hidden;
+    }
+
+    .copy-item i {
+      font-size: 1.4rem;
+      color: var(--accent);
+      min-width: 24px;
+    }
+
+    .copy-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .copy-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .copy-value {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-top: 2px;
+      word-break: break-all;
+    }
+
+    .copy-icon {
+      color: var(--text-muted);
+      font-size: 1rem;
+      opacity: 0.5;
+    }
+
+    /* Buttons Grid */
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 30px;
     }
 
     .social-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 28px;
-      font-size: 1rem;
+      padding: 14px 20px;
       font-weight: 600;
-      border: none;
-      border-radius: 60px;
-      cursor: pointer;
-      color: white;
-      transition: var(--transition);
-      box-shadow: 0 8px 16px -6px rgba(216, 27, 96, 0.5);
+      border-radius: 12px;
       text-decoration: none;
-      flex: 0 1 auto;
-      min-width: 160px;
-    }
-
-    .social-btn i {
-      font-size: 1.2rem;
-    }
-
-    .social-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px -8px rgba(183, 28, 90, 0.6);
-    }
-
-    /* Platform-specific button colors */
-    .social-btn.telegram { background: #0088cc; }
-    .social-btn.telegram:hover { background: #0077b3; }
-    .social-btn.upi { background: #0f9d58; }  /* UPI green */
-    .social-btn.upi:hover { background: #0b7e45; }
-    .social-btn.paypal { background: #003087; }
-    .social-btn.paypal:hover { background: #00256b; }
-    .social-btn.default { background: var(--primary); }
-    .social-btn.default:hover { background: #b71c5a; }
-
-    .email-note {
-      text-align: center;
-      margin-top: 25px;
+      color: white;
+      transition: transform 0.2s, box-shadow 0.2s;
       font-size: 0.95rem;
     }
 
-    .email-note a {
-      color: var(--primary);
-      font-weight: 700;
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Button specific colors */
+    .btn-telegram { background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); }
+    .btn-main { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+    .btn-upi { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+    .btn-paypal { background: linear-gradient(135deg, #0070ba 0%, #003087 100%); }
+
+    /* Email Section */
+    .email-section {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .email-section a {
+      color: var(--highlight);
       text-decoration: none;
-      border-bottom: 2px dotted var(--primary-light);
+      font-weight: 500;
     }
 
-    .email-note a:hover {
-      border-bottom-style: solid;
+    .email-section a:hover {
+      text-decoration: underline;
     }
 
-    hr {
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--primary-light), transparent);
-      margin: 30px 0 20px;
+    /* Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #10b981;
+      color: #fff;
+      text-align: center;
+      border-radius: 50px;
+      padding: 12px;
+      position: fixed;
+      z-index: 10;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s, bottom 0.3s;
     }
 
-    @media (max-width: 500px) {
-      .support-card { padding: 25px 18px; }
-      .copy-item { font-size: 0.9rem; padding: 12px 15px; }
-      .button-grid { flex-direction: column; align-items: stretch; }
-      .social-btn { justify-content: center; }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 50px;
+    }
+
+    /* Animations */
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .support-card { padding: 25px 20px; }
+      h1 { font-size: 2rem; }
+      .button-grid { grid-template-columns: 1fr; }
+      .copy-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .copy-icon { position: absolute; top: 15px; right: 15px; }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>Support TRUMods</h1>
-    <p class="subtitle">Your support helps us continue building, maintaining, and improving for the community.</p>
-
     <div class="support-card">
-      <p><i class="fas fa-heart" style="color: #d81b60; margin-right: 8px;"></i> Your support truly means a lot to us. If you enjoy our work and find it useful, consider supporting us. Every contribution helps us continue improving, maintaining, and building more for the community.</p>
+      <h1>Support TRUMods</h1>
+      <p class="subtitle">
+        Building tools for the community. <br>
+        <span style="font-size: 0.9em; opacity: 0.8;">Your support keeps us going. <i class="fas fa-heart heart-icon"></i></span>
+      </p>
 
-      <h3><i class="fas fa-coins"></i> Support Options (Tap to Copy)</h3>
+      <h3><i class="fas fa-wallet"></i> Crypto & UPI</h3>
 
-      <!-- Binance ID -->
-      <div class="copy-item" onclick="copyWithToast('1114282904')" role="button" tabindex="0" aria-label="Copy Binance ID">
-        <i class="fab fa-binance"></i>
-        <span><strong>Binance ID:</strong> 1114282904</span>
+      <div class="copy-item" onclick="copyText('1114282904')">
+        <div class="copy-left">
+          <i class="fab fa-bitcoin"></i> <div class="copy-details">
+            <span class="copy-label">Binance ID</span>
+            <span class="copy-value">1114282904</span>
+          </div>
+        </div>
+        <i class="far fa-copy copy-icon"></i>
       </div>
 
-      <!-- TRC20 Address -->
-      <div class="copy-item" onclick="copyWithToast('THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv')" role="button" tabindex="0" aria-label="Copy TRC20 address">
-        <i class="fas fa-coins"></i>
-        <span><strong>TRC20 (USDT / TRX):</strong> THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv</span>
+      <div class="copy-item" onclick="copyText('THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv')">
+        <div class="copy-left">
+          <i class="fas fa-network-wired"></i>
+          <div class="copy-details">
+            <span class="copy-label">TRC20 (USDT/TRX)</span>
+            <span class="copy-value">THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv</span>
+          </div>
+        </div>
+        <i class="far fa-copy copy-icon"></i>
       </div>
 
-      <!-- UPI ID (copy) -->
-      <div class="copy-item" onclick="copyWithToast('trumods@ptyes')" role="button" tabindex="0" aria-label="Copy UPI ID">
-        <i class="fas fa-mobile-alt"></i>
-        <span><strong>UPI ID:</strong> trumods@ptyes</span>
+      <div class="copy-item" onclick="copyText('trumods@ptyes')">
+        <div class="copy-left">
+          <i class="fas fa-mobile-alt"></i>
+          <div class="copy-details">
+            <span class="copy-label">UPI ID</span>
+            <span class="copy-value">trumods@ptyes</span>
+          </div>
+        </div>
+        <i class="far fa-copy copy-icon"></i>
       </div>
 
-      <hr>
+      <h3><i class="fas fa-link"></i> Links & Pay</h3>
 
-      <div class="email-note">
-        <p>📸 Once you donate, please send a screenshot to <a href="mailto:TRUMods.official@gmail.com">TRUMods.official@gmail.com</a> to verify your contribution.</p>
-        <p style="margin-top: 10px;">Thank you for supporting TRUMods and being part of the journey! 🙏</p>
-      </div>
-
-      <!-- All the links/buttons as requested -->
       <div class="button-grid">
-        <!-- Existing Telegram main channel (keep it) -->
-        <a href="https://t.me/TRUModsS" target="_blank" class="social-btn telegram">
+        <a href="https://t.me/TRUModsS" target="_blank" class="social-btn btn-telegram">
           <i class="fab fa-telegram-plane"></i> Main Channel
         </a>
-
-        <!-- New TRUModGames Telegram -->
-        <a href="https://t.me/TRUModGames" target="_blank" class="social-btn default">
-          <i class="fab fa-telegram-plane"></i> TRUModGames
+        <a href="https://t.me/TRUModGames" target="_blank" class="social-btn btn-main">
+          <i class="fas fa-gamepad"></i> Games
         </a>
-
-        <!-- New Backup Telegram -->
-        <a href="https://t.me/TRUMod" target="_blank" class="social-btn default">
-          <i class="fab fa-telegram-plane"></i> Backup Channel
+        <a href="https://t.me/TRUMod" target="_blank" class="social-btn btn-main">
+          <i class="fas fa-shield-alt"></i> Backup
         </a>
-
-        <!-- UPI Payment Link (opens UPI app) -->
-        <a href="upi://pay?pa=trumods@ptyes&pn=TRUMods" target="_blank" class="social-btn upi">
+        <a href="upi://pay?pa=trumods@ptyes&pn=TRUMods" target="_blank" class="social-btn btn-upi">
           <i class="fas fa-qrcode"></i> Pay via UPI
         </a>
-
-        <!-- PayPal Link -->
-        <a href="https://paypal.me/trumod" target="_blank" class="social-btn paypal">
-          <i class="fab fa-paypal"></i> Donate via PayPal
+        <a href="https://paypal.me/trumod" target="_blank" class="social-btn btn-paypal">
+          <i class="fab fa-paypal"></i> PayPal
         </a>
       </div>
 
-      <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
-        <i class="fas fa-mouse-pointer"></i> Click on any address to copy
-      </p>
+      <div class="email-section">
+        <p>📸 Please send payment screenshot to verify:</p>
+        <a href="mailto:TRUMods.official@gmail.com"><i class="fas fa-envelope"></i> TRUMods.official@gmail.com</a>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Tap any address box to copy instantly.</p>
+      </div>
+
     </div>
   </div>
 
+  <div id="toast"><i class="fas fa-check-circle"></i> Text Copied!</div>
+
   <script>
-    function showToast(message, duration = 3000) {
-      const existingToast = document.querySelector('.toast-message');
-      if (existingToast) existingToast.remove();
-
-      const toast = document.createElement('div');
-      toast.className = 'toast-message';
-      toast.textContent = message;
-      document.body.appendChild(toast);
-
-      setTimeout(() => {
-        toast.remove();
-      }, duration);
-    }
-
-    function copyWithToast(text) {
+    function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
-        showToast('✅ Copied: ' + text);
-      }).catch(() => {
-        showToast('❌ Copy failed, try manually');
+        const toast = document.getElementById("toast");
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
       });
     }
   </script>
-</body>
-</html>      margin: 12px 0;
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 500;
-      user-select: all;
-      position: relative;
-    }
 
-    .copy-item i {
-      font-size: 1.5rem;
-      color: var(--primary);
-      width: 30px;
-      text-align: center;
-    }
-
-    .copy-item:hover {
-      background: #ffccd9;
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -8px rgba(216, 27, 96, 0.4);
-    }
-
-    .copy-item:active {
-      transform: translateY(0);
-    }
-
-    /* Toast notification style */
-    .toast-message {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2c3e50;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 500;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      z-index: 1000;
-      animation: toastIn 0.3s ease;
-    }
-
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-      to { opacity: 1; transform: translateX(-50%) translateY(0); }
-    }
-
-    .button-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin: 35px 0 15px;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 60px;
-      cursor: pointer;
-      background: var(--primary);
-      color: white;
-      transition: var(--transition);
-      box-shadow: 0 8px 16px -6px rgba(216, 27, 96, 0.5);
-      text-decoration: none;
-      flex: 0 1 auto;
-      min-width: 160px;
-    }
-
-    .social-btn i {
-      font-size: 1.2rem;
-    }
-
-    .social-btn:hover {
-      background: #b71c5a;
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px -8px rgba(183, 28, 90, 0.6);
-    }
-
-    /* Different colors for different platforms (optional) */
-    .social-btn.telegram { background: #0088cc; }
-    .social-btn.telegram:hover { background: #0077b3; }
-    .social-btn.discord { background: #5865F2; }
-    .social-btn.discord:hover { background: #4752c4; }
-    .social-btn.twitter { background: #1DA1F2; }
-    .social-btn.twitter:hover { background: #1a8cd8; }
-
-    .email-note {
-      text-align: center;
-      margin-top: 25px;
-      font-size: 0.95rem;
-    }
-
-    .email-note a {
-      color: var(--primary);
-      font-weight: 700;
-      text-decoration: none;
-      border-bottom: 2px dotted var(--primary-light);
-    }
-
-    .email-note a:hover {
-      border-bottom-style: solid;
-    }
-
-    hr {
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--primary-light), transparent);
-      margin: 30px 0 20px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 500px) {
-      .support-card { padding: 25px 18px; }
-      .copy-item { font-size: 0.9rem; padding: 12px 15px; }
-      .button-grid { flex-direction: column; align-items: stretch; }
-      .social-btn { justify-content: center; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Support TRUMods</h1>
-    <p class="subtitle">Your support helps us continue building, maintaining, and improving for the community.</p>
-
-    <div class="support-card">
-      <p><i class="fas fa-heart" style="color: #d81b60; margin-right: 8px;"></i> Your support truly means a lot to us. If you enjoy our work and find it useful, consider supporting us. Every contribution helps us continue improving, maintaining, and building more for the community.</p>
-
-      <h3><i class="fas fa-coins"></i> Support Options (Tap to Copy)</h3>
-
-      <div class="copy-item" onclick="copyWithToast('1114282904')" role="button" tabindex="0" aria-label="Copy Binance ID">
-        <i class="fab fa-binance"></i>
-        <span><strong>Binance ID:</strong> 1114282904</span>
-      </div>
-
-      <div class="copy-item" onclick="copyWithToast('THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv')" role="button" tabindex="0" aria-label="Copy TRC20 address">
-        <i class="fas fa-coins"></i>
-        <span><strong>TRC20 (USDT / TRX):</strong> THpdUx8UXsEKHVWoa5qxa7nbKiJbviBNPv</span>
-      </div>
-
-      <hr>
-
-      <div class="email-note">
-        <p>📸 Once you donate, please send a screenshot to <a href="mailto:TRUMods.official@gmail.com">TRUMods.official@gmail.com</a> to verify your contribution.</p>
-        <p style="margin-top: 10px;">Thank you for supporting TRUMods and being part of the journey! 🙏</p>
-      </div>
-
-      <!-- New links / social media buttons will go here -->
-      <div class="button-grid">
-        <!-- Telegram (existing) -->
-        <a href="https://t.me/TRUModsS" target="_blank" class="social-btn telegram">
-          <i class="fab fa-telegram-plane"></i> Join Telegram
-        </a>
-
-        <!-- Example new buttons – you can replace or add more later -->
-        <a href="#" target="_blank" class="social-btn discord">
-          <i class="fab fa-discord"></i> Join Discord
-        </a>
-        <a href="#" target="_blank" class="social-btn twitter">
-          <i class="fab fa-twitter"></i> Follow on X
-        </a>
-        <!-- यहाँ और बटन जोड़ सकते हैं, जैसे YouTube, Instagram, etc. -->
-      </div>
-
-      <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
-        <i class="fas fa-mouse-pointer"></i> Click on any address to copy
-      </p>
-    </div>
-  </div>
-
-  <script>
-    // Toast notification function instead of alert
-    function showToast(message, duration = 3000) {
-      // Remove existing toast if any
-      const existingToast = document.querySelector('.toast-message');
-      if (existingToast) existingToast.remove();
-
-      const toast = document.createElement('div');
-      toast.className = 'toast-message';
-      toast.textContent = message;
-      document.body.appendChild(toast);
-
-      setTimeout(() => {
-        toast.remove();
-      }, duration);
-    }
-
-    function copyWithToast(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        showToast('✅ Copied: ' + text);
-      }).catch(() => {
-        showToast('❌ Copy failed, try manually');
-      });
-    }
-  </script>
 </body>
 </html>
