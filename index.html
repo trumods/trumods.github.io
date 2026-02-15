@@ -326,6 +326,17 @@
         <i class="far fa-copy copy-icon"></i>
       </div>
 
+      <div class="copy-item" onclick="copyText('UQCgyLDO6DvqYymxTfPZQ9bmvKld3NVl4mc43lNdhruVbqaN')">
+        <div class="copy-left">
+          <i class="fas fa-gem"></i>
+          <div class="copy-details">
+            <span class="copy-label">TON (The Open Network)</span>
+            <span class="copy-value">UQCgyLDO6DvqYymxTfPZQ9bmvKld3NVl4mc43lNdhruVbqaN</span>
+          </div>
+        </div>
+        <i class="far fa-copy copy-icon"></i>
+      </div>
+
       <div class="copy-item" onclick="copyText('trumods@ptyes')">
         <div class="copy-left">
           <i class="fas fa-mobile-alt"></i>
@@ -335,6 +346,17 @@
           </div>
         </div>
         <i class="far fa-copy copy-icon"></i>
+      </div>
+
+      <h3><i class="fas fa-credit-card"></i> Direct Payment</h3>
+
+      <div class="button-grid">
+        <a href="upi://pay?pa=trumods@ptyes&pn=TRUMods" target="_blank" class="social-btn btn-upi">
+          <i class="fas fa-qrcode"></i> Pay via UPI App
+        </a>
+        <a href="https://paypal.me/trumod" target="_blank" class="social-btn btn-paypal">
+          <i class="fab fa-paypal"></i> PayPal
+        </a>
       </div>
 
       <h3><i class="fab fa-telegram"></i> Official Channels</h3>
@@ -351,17 +373,6 @@
         </a>
         <a href="https://t.me/TRUModsOG" target="_blank" class="social-btn btn-telegram-dark">
           <i class="fas fa-comments"></i> TRUMod (Chats)
-        </a>
-      </div>
-
-      <h3><i class="fas fa-credit-card"></i> Direct Payment</h3>
-
-      <div class="button-grid">
-        <a href="upi://pay?pa=trumods@ptyes&pn=TRUMods" target="_blank" class="social-btn btn-upi">
-          <i class="fas fa-qrcode"></i> Pay via UPI App
-        </a>
-        <a href="https://paypal.me/trumod" target="_blank" class="social-btn btn-paypal">
-          <i class="fab fa-paypal"></i> PayPal
         </a>
       </div>
 
@@ -383,7 +394,7 @@
         toast.className = "show";
         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
       }).catch(err => {
-        // Fallback for older browsers
+        // Fallback for older browsers or if clipboard permission denied
         const textArea = document.createElement("textarea");
         textArea.value = text;
         document.body.appendChild(textArea);
